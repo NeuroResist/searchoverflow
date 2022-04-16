@@ -10,7 +10,10 @@ export const useSearchRequest = (searchTitle) => {
       setIsLoading(true);
       try {
         let response = await fetch(
-          apiURL + "search?intitle=" + searchTitle + "&site=stackoverflow"
+          apiURL +
+            "search?page=1&pagesize=10&order=desc&sort=activity&intitle=" +
+            searchTitle +
+            "&site=stackoverflow"
         );
         let data = await response.json();
         setData(data);

@@ -1,0 +1,25 @@
+.title{
+  display: flex;
+  width: 600px;
+  background-color: wheat;
+  &__author{
+    min-width: 100px;
+    justify-content: center;
+
+  }
+  &__title{
+    min-width: 100px;
+    justify-content: center;
+
+  }
+  &__count{
+    min-width: 100px;
+    justify-content: center;
+
+  }
+  &__tags{
+    min-width: 100px;
+    justify-content: center;
+
+  }
+}

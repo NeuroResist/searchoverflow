@@ -4,8 +4,8 @@ import { TableQuestion } from "../TableQuestion/TableQuestion";
 import "./Table.css";
 import loader from "./LoadingTable.png";
 
-export const Table = ({ searchTitle }) => {
-  const [data, isLoading] = useSearchRequest(searchTitle);
+export const Table = ({ searchTitle, filter }) => {
+  const [data, isLoading] = useSearchRequest(searchTitle, filter);
   console.log(searchTitle, isLoading);
 
   if (isLoading)

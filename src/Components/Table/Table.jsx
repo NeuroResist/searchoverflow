@@ -2,12 +2,18 @@ import { useSearchRequest } from "../../Hooks/useSearchRequest";
 import { TableHeader } from "../TableHeader/TableHeader";
 import { TableQuestion } from "../TableQuestion/TableQuestion";
 import "./Table.css";
+import loader from "./LoadingTable.png";
 
 export const Table = ({ searchTitle }) => {
   const [data, isLoading] = useSearchRequest(searchTitle);
   console.log(searchTitle, isLoading);
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading)
+    return (
+      <div>
+        <img src={loader} alt="" />
+      </div>
+    );
   return (
     <div>
       <TableHeader />
@@ -25,7 +31,7 @@ export const Table = ({ searchTitle }) => {
           );
         })
       ) : (
-        <div>Nothing</div>
+        <div>Ничего не найдено :(</div>
       )}
     </div>
   );

@@ -6,7 +6,7 @@ import { Answers } from "./Pages/Answers/Answers";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SearchPage />}></Route>
+      <Route path="/" element={<SearchPage />} />
       <Route path="/posts:id" element={<Answers />} />
     </Routes>
   );

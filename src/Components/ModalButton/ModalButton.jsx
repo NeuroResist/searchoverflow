@@ -1,14 +1,16 @@
 import "./ModalButton.css";
 import { Context } from "../../Pages/SearchPage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
-export const ModalButton = (isOpen) => {
-  const { setIsModalOpen } = useContext(Context);
+export const ModalButton = () => {
+  const { setIsModalOpen, isModalOpen } = useContext(Context);
+
+  const toggleClass = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
-    <button
-      onClick={setIsModalOpen((prevCount) => !prevCount)}
-      className="openModal"
-    >
+    <button onClick={toggleClass} className={isModalOpen ? "block" : "none"}>
       Modalka
     </button>
   );

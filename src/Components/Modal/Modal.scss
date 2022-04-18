@@ -1,5 +1,5 @@
 .modal {
-  display: none; /* Скрыто по умолчанию */
+  display: block; /* Скрыто по умолчанию */
   position: fixed; /* Оставаться на месте */
   z-index: 1; /* Сидеть на вершине */
   left: 0;

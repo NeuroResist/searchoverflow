@@ -7,6 +7,7 @@ import { useState } from "react";
 import "./index.css";
 import logo from "./SearchOverflow.png";
 import { ModalButton } from "../../Components/ModalButton/ModalButton";
+import { Modal } from "../../Components/Modal/Modal";
 export const Context = React.createContext();
 
 export const SearchPage = (props) => {
@@ -16,11 +17,11 @@ export const SearchPage = (props) => {
   const onSubmit = (data) => {
     setSearchTitle(data.search);
   };
-
   return (
     <Context.Provider
       value={{
         setIsModalOpen,
+        isModalOpen,
       }}
     >
       <div className="container">
@@ -31,8 +32,9 @@ export const SearchPage = (props) => {
           <SearchInput control={control} name="search" />
           <Button />
         </form>
-        {searchTitle && <Table searchTitle={searchTitle}></Table>}
-        <ModalButton isOpen={isModalOpen} />
+        {searchTitle && <Table searchTitle={searchTitle} />}
+        <ModalButton />
+        <Modal />
       </div>
     </Context.Provider>
   );

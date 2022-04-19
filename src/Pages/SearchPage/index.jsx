@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import { SearchInput } from "../../Components/SearchInput/SearchInput";
 import { useForm } from "react-hook-form";
 import { Button } from "../../Components/Button/Button";
@@ -19,6 +20,7 @@ export const SearchPage = (props) => {
   const [isTag, setIsTag] = useState("");
   const [isAuthor, setIsAuthor] = useState("");
   const [tagOrAuthor, setTagOrAuthor] = useState("");
+  const [idOfQuestion, setIdOfQuestion] = useState();
   let isFirst = true;
   const onSubmit = (data) => {
     setSearchTitle(data.search);
@@ -51,6 +53,7 @@ export const SearchPage = (props) => {
         setIsAuthor,
         tagOrAuthor,
         setTagOrAuthor,
+        setIdOfQuestion,
       }}
     >
       <div className="container">
@@ -68,6 +71,7 @@ export const SearchPage = (props) => {
         {!isModalOpen && tagOrAuthor === "author" && (
           <Modal author={isAuthor} />
         )}
+        <Link to="/71925126">Posts1</Link>
       </div>
     </Context.Provider>
   );

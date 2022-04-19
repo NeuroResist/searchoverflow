@@ -30,6 +30,7 @@ export const Table = ({ searchTitle, filter, tag, author }) => {
               tags={item.tags}
               title={item.title}
               id={item.owner.user_id}
+              questionId={item.question_id}
             />
           );
         })

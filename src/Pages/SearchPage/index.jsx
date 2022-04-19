@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SearchInput } from "../../Components/SearchInput/SearchInput";
 import { useForm } from "react-hook-form";
 import { Button } from "../../Components/Button/Button";
@@ -16,10 +16,28 @@ export const SearchPage = (props) => {
   const { control, handleSubmit } = useForm();
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [select, setSelect] = useState("activity");
-  // activity votes creation relevance
+  const [isTag, setIsTag] = useState("");
+  const [isAuthor, setIsAuthor] = useState("");
+  const [tagOrAuthor, setTagOrAuthor] = useState("");
+  let isFirst = true;
   const onSubmit = (data) => {
     setSearchTitle(data.search);
   };
+  // useEffect для замены tag author
+  useEffect(() => {
+    if (!isFirst) {
+      setTagOrAuthor("tag");
+      console.log(tagOrAuthor);
+    }
+  }, [isTag]);
+  useEffect(() => {
+    if (!isFirst) {
+      setTagOrAuthor("author");
+      console.log(tagOrAuthor);
+    }
+  }, [isAuthor]);
+  isFirst = false;
+  console.log("==================" + isAuthor);
   return (
     <Context.Provider
       value={{
@@ -27,6 +45,12 @@ export const SearchPage = (props) => {
         isModalOpen,
         select,
         setSelect,
+        isTag,
+        setIsTag,
+        isAuthor,
+        setIsAuthor,
+        tagOrAuthor,
+        setTagOrAuthor,
       }}
     >
       <div className="container">
@@ -37,10 +61,13 @@ export const SearchPage = (props) => {
           <SearchInput control={control} name="search" />
           <Button />
         </form>
+        <Filter />
         {searchTitle && <Table filter={select} searchTitle={searchTitle} />}
         <ModalButton />
-        <Modal />
-        <Filter />
+        {!isModalOpen && tagOrAuthor === "tag" && <Modal tag={isTag} />}
+        {!isModalOpen && tagOrAuthor === "author" && (
+          <Modal author={isAuthor} />
+        )}
       </div>
     </Context.Provider>
   );

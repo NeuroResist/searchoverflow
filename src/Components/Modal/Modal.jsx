@@ -1,26 +1,11 @@
 import "./Modal.css";
 import { Context } from "../../Pages/SearchPage";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import { Table } from "../Table/Table";
 
-export const Modal = () => {
-  const { setIsModalOpen, isModalOpen } = useContext(Context);
-
-  // let modal = document.querySelector(".myModal");
-  // let openModal = document.querySelector(".openModal");
-  // let close = document.querySelector(".close");
-
-  // Когда пользователь нажимает на кнопку, открыть модалку
-  // openModal.onclick = function () {
-  //   modal.style.display = "block";
-  // };
-  //
-  // const BtnClose = (e) => {
-  //   e.currentTarget.classList.add("none");
-  // };
-
-  // window.onclick = function (event) {
-  //   if (isModalOpen) toggleClass();
-  // };
+export const Modal = ({ tag, author }) => {
+  const { setIsModalOpen, isModalOpen, tagOrAuthor } = useContext(Context);
+  console.log("_______" + author);
   const toggleClass = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -33,8 +18,22 @@ export const Modal = () => {
       onClick={(e) => toggleClassForBackground(e)}
     >
       <div className="modal-content">
-        <h2 className="modal-header">######</h2>
-        Тут таблица
+        {tag && tagOrAuthor === "tag" && (
+          <>
+            <h2 className="modal-header">
+              Часто задаваемые вопросы по тегу {tag}
+            </h2>
+            <Table tag={tag} />
+          </>
+        )}
+        {author && tagOrAuthor === "author" && (
+          <>
+            <h2 className="modal-header">
+              Популярные вопросы аккаунта - {author}
+            </h2>
+            <Table author={author} />
+          </>
+        )}
         <button onClick={toggleClass} className="close">
           Закрыть
         </button>

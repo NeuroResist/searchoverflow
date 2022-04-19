@@ -1,0 +1,34 @@
+.question {
+  min-height: 50px;
+  display: flex;
+}
+.question__author, .question__theme, .question__count, .question__tags {
+  overflow: auto;
+  box-sizing: border-box;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #FFCC66;
+  border: 1px white solid;
+}
+.question__author {
+  width: 150px;
+}
+.question__theme {
+  width: 550px;
+}
+.question__count {
+  width: 110px;
+}
+.question__tags {
+  width: 450px;
+}
+.question__tag {
+  border-radius: 4px;
+  padding: 1px 4px 1px 4px;
+  margin: 0 2px;
+  cursor: pointer;
+  background-color: #c9c9c9;
+}
+
+/*# sourceMappingURL=TableQuestion.css.map */

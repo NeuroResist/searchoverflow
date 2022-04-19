@@ -1,0 +1,27 @@
+.header {
+  height: 50px;
+  display: flex;
+}
+.header__author, .header__theme, .header__count, .header__tags {
+  box-sizing: border-box;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #FF9933;
+  border: 1px white solid;
+}
+.header__author {
+  width: 150px;
+}
+.header__theme {
+  width: 550px;
+}
+.header__count {
+  width: 110px;
+}
+.header__tags {
+  width: 450px;
+}
+
+/*# sourceMappingURL=TableHeader.css.map */

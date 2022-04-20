@@ -29,17 +29,14 @@ export const SearchPage = (props) => {
   useEffect(() => {
     if (!isFirst) {
       setTagOrAuthor("tag");
-      console.log(tagOrAuthor);
     }
   }, [isTag]);
   useEffect(() => {
     if (!isFirst) {
       setTagOrAuthor("author");
-      console.log(tagOrAuthor);
     }
   }, [isAuthor]);
   isFirst = false;
-  console.log("==================" + isAuthor);
   return (
     <Context.Provider
       value={{
@@ -66,12 +63,11 @@ export const SearchPage = (props) => {
         </form>
         <Filter />
         {searchTitle && <Table filter={select} searchTitle={searchTitle} />}
-        <ModalButton />
+        {/*<ModalButton />*/}
         {!isModalOpen && tagOrAuthor === "tag" && <Modal tag={isTag} />}
         {!isModalOpen && tagOrAuthor === "author" && (
           <Modal author={isAuthor} />
         )}
-        <Link to="/71925126">Posts1</Link>
       </div>
     </Context.Provider>
   );

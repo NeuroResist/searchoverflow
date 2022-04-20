@@ -3,7 +3,7 @@ import { apiURL } from "../Helpers/constans";
 import { useContext } from "react";
 import { Context } from "../Pages/SearchPage";
 
-export const useSearchRequest = ({ searchTitle, filter, tag, author }) => {
+export const useSearchRequest = ({ searchTitle, filter, tag, author, id }) => {
   const { tagOrAuthor } = useContext(Context);
 
   const [data, setData] = useState([]);
@@ -23,8 +23,6 @@ export const useSearchRequest = ({ searchTitle, filter, tag, author }) => {
               "&site=stackoverflow"
           );
         } else if (tag && tagOrAuthor === "tag") {
-          console.log("222222222222222222222222222222222222222222");
-
           response = await fetch(
             apiURL +
               "tags/" +
@@ -32,12 +30,20 @@ export const useSearchRequest = ({ searchTitle, filter, tag, author }) => {
               "/faq?page=1&pagesize=10&site=stackoverflow"
           );
         } else if (author && tagOrAuthor === "author") {
-          console.log("11111111111111111111111111111111111111111");
           response = await fetch(
             apiURL +
               "users/" +
               author +
               "/questions?page=1&pagesize=10&order=desc&sort=activity&site=stackoverflow"
+          );
+        } else if (id) {
+          //https://api.stackexchange.com/2.3/71925126
+
+          response = await fetch(
+            apiURL +
+              "questions/" +
+              id +
+              "/answers?order=desc&sort=activity&site=stackoverflow&filter=!6VvPDzQHbd2UL"
           );
         }
         let data = await response.json();

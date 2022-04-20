@@ -13,6 +13,7 @@
 }
 .question__author {
   width: 150px;
+  cursor: pointer;
 }
 .question__theme {
   width: 550px;

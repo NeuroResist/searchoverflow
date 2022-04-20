@@ -5,7 +5,6 @@ import { Table } from "../Table/Table";
 
 export const Modal = ({ tag, author }) => {
   const { setIsModalOpen, isModalOpen, tagOrAuthor } = useContext(Context);
-  console.log("_______" + author);
   const toggleClass = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -29,7 +28,8 @@ export const Modal = ({ tag, author }) => {
         {author && tagOrAuthor === "author" && (
           <>
             <h2 className="modal-header">
-              Популярные вопросы аккаунта - {author}
+              Популярные вопросы аккаунта -{" "}
+              <a href={"https://stackoverflow.com/users/" + author}>{author}</a>
             </h2>
             <Table author={author} />
           </>

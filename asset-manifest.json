@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/searchoverflow/static/css/main.c3894875.css",
-    "main.js": "/searchoverflow/static/js/main.daa25790.js",
+    "main.js": "/searchoverflow/static/js/main.1710464c.js",
     "static/media/SearchOverflow.png": "/searchoverflow/static/media/SearchOverflow.3a439e392133aecc43dd.png",
     "index.html": "/searchoverflow/index.html",
     "main.c3894875.css.map": "/searchoverflow/static/css/main.c3894875.css.map",
-    "main.daa25790.js.map": "/searchoverflow/static/js/main.daa25790.js.map"
+    "main.1710464c.js.map": "/searchoverflow/static/js/main.1710464c.js.map"
   },
   "entrypoints": [
     "static/css/main.c3894875.css",
-    "static/js/main.daa25790.js"
+    "static/js/main.1710464c.js"
   ]
 }
